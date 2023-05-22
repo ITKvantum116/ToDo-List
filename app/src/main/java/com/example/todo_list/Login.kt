@@ -1,15 +1,27 @@
 package com.example.todo_list
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 
 class Login : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
+        val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+
+
+
+        }
+
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
@@ -20,17 +32,22 @@ class Login : AppCompatActivity() {
         val res = findViewById<TextView>(R.id.logResult)
 
         var i = 0
+        var x = 0
 
         var user = ""
         var kolvo = 0
         val zadachi = arrayListOf<String>()
 
 
+        val dbHelper = db(this)
+        val db = dbHelper.writableDatabase
+
+
         btn.setOnClickListener {
 
 
 
-            if (username.text.toString()!= ""){
+            if (username.toString() != ""){
                 if (i == 0){
 
                     user = username.text.toString()
@@ -47,7 +64,8 @@ class Login : AppCompatActivity() {
 
 
 
-                    kolvo =  username.toString().toInt()
+                    kolvo =  username.text.toString().toInt()
+                    x =  username.text.toString().toInt()
 
                     username.setText("")
                     task.setText("Вводите текст задачи и нажимайте кнопку?")
@@ -60,24 +78,40 @@ class Login : AppCompatActivity() {
 
                 else if (i == 2){
 
+                    if (x > 0){
+                        zadachi.add(username.text.toString())
+                        username.setText("")
+                        x --
+
+                        if (x == 0){
+
+                            db.execSQL("INSERT INTO users (Name, Kolvo, Zadachi) VALUES ('" + user + "', " + kolvo + ", '" + zadachi.toString() +  "')")
 
 
 
+                            val nxt = Intent(this, MainActivity::class.java)
+                            nxt.putExtra("bez", user.toString())
 
-                    for(j in 1..kolvo){
-                        zadachi.add(username.toString())
+                            launcher.launch(nxt)
+
+
+
+                            //startActivity(openIntent)
+
+
+                       /*     val openIntent = Intent(this, MainActivity::class.java)
+                            openIntent.putExtra("someData", user.toString())
+                            startActivity(openIntent)
+*/
+                        }
 
                     }
 
-                    println(user)
-                    println(kolvo)
-                    println(zadachi)
+                    /*for(j in 1..kolvo){
+                        println(zadachi)
+                        zadachi.add(username.text.toString())
 
-
-                    val dbHelper = db(this)
-                    val db = dbHelper.writableDatabase
-                    db.execSQL("INSERT INTO Events (Name, Kolvo, Zadachi) VALUES (user, kolvo, zadachi)")
-
+                    }*/
 
 
                 }
