@@ -8,9 +8,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
+import java.io.IOException
 
 class Login : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint("MissingInflatedId", "Range")
     override fun onCreate(savedInstanceState: Bundle?) {
 
 
@@ -50,13 +51,46 @@ class Login : AppCompatActivity() {
             if (username.toString() != ""){
                 if (i == 0){
 
+
+
+
+
+
                     user = username.text.toString()
 
-                    username.setText("")
-                    task.setText("Сколько задач вы хотите задать?")
+
+                    try {
+                        val u = db.rawQuery("SELECT Kolvo FROM users WHERE Name = '$user'", null)
+                        u.moveToFirst()
+                        var n = u.getString(u.getColumnIndex("Kolvo"))
+
+                        println("tuta")
+
+                        val nxt = Intent(this, MainActivity::class.java)
+                        nxt.putExtra("bez", user.toString())
+
+                        launcher.launch(nxt)
 
 
-                    i++
+
+
+
+
+
+                    }
+                    catch(e: Exception) {
+                        username.setText("")
+                        task.setText("Сколько задач вы хотите задать?")
+
+
+                        i++
+                    }
+
+
+
+
+
+
 
 
                 }

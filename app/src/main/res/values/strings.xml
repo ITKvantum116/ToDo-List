@@ -15,4 +15,5 @@
     <string name="loginput"></string>
     <string name="logbutton">Войти</string>
     <string name="logresult">TextView</string>
+    <string name="PrimBut">Применить</string>
 </resources>

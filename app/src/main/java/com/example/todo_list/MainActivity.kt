@@ -1,18 +1,17 @@
 package com.example.todo_list
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.TextView
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
-    @SuppressLint("Range")
+    @SuppressLint("Range", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
 
 
@@ -33,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         val greatText = intent.getStringExtra("bez")
         if(greatText != null){
 
-            n.text = greatText
+            n.text = "Здравствуйте, " + greatText + "\nПланы на сегодня:"
         }
 
 
@@ -69,5 +68,28 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    }
+        val check = findViewById<CheckBox>(R.id.itemCheckBox)
+        val clickB = findViewById<Button>(R.id.buttonbb)
+
+
+
+
+
+        clickB.setOnClickListener {
+        if(check.isChecked){
+           println("11")
+            /*check.setBackgroundColor(getColor(R.color.green))
+            check.isEnabled = false*/
+
+        }
+
+
+        }
+
+
+
+
+
+
+        }
 }

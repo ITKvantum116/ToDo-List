@@ -12,7 +12,7 @@ class EventsAdapter(val eventsList : List<Event>) : RecyclerView.Adapter<EventsA
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameCheckBox = itemView.findViewById<CheckBox>(R.id.itemCheckBox)
-        val eventButton = itemView.findViewById<Button>(R.id.itemButton)
+        //val eventButton = itemView.findViewById<Button>(R.id.itemButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,7 +31,8 @@ class EventsAdapter(val eventsList : List<Event>) : RecyclerView.Adapter<EventsA
         val event : Event = eventsList.get(position)
         val eventCheckBox = holder.nameCheckBox
         eventCheckBox.text = (event.name)
-        val button = holder.eventButton
-        button.text = "Не нажимать"
+
+        /*val button = holder.eventButton
+        button.text = "Не нажимать"*/
     }
 }
