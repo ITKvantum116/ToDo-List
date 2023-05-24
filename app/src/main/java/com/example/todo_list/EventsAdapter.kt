@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 // Специальный адаптер, который заполняет RecycleView элементами по схеме item_event.xml
 class EventsAdapter(val eventsList : List<Event>) : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
 
+    val checks = arrayListOf<String>()
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameCheckBox = itemView.findViewById<CheckBox>(R.id.itemCheckBox)
         //val eventButton = itemView.findViewById<Button>(R.id.itemButton)
@@ -31,6 +33,22 @@ class EventsAdapter(val eventsList : List<Event>) : RecyclerView.Adapter<EventsA
         val event : Event = eventsList.get(position)
         val eventCheckBox = holder.nameCheckBox
         eventCheckBox.text = (event.name)
+
+
+        // Сюда тот код
+        // Сюда тот код
+        // Сюда тот кодм
+
+
+
+
+
+
+
+        //checks.add(eventCheckBox.get)
+
+
+
 
         /*val button = holder.eventButton
         button.text = "Не нажимать"*/

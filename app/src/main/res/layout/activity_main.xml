@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#141214"
+    android:backgroundTint="#141214"
     tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -18,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.83" />
+        app:layout_constraintVertical_bias="0.829" />
 
     <TextView
         android:id="@+id/nameLabel"
@@ -26,6 +28,7 @@
         android:layout_height="81dp"
         android:text="TextView"
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/mainList"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,9 +37,12 @@
 
     <Button
         android:id="@+id/buttonbb"
-        android:layout_width="212dp"
-        android:layout_height="57dp"
+        android:layout_width="252dp"
+        android:layout_height="67dp"
+        android:backgroundTint="#36BBCE"
         android:text="@string/PrimBut"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

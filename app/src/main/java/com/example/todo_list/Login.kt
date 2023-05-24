@@ -48,7 +48,7 @@ class Login : AppCompatActivity() {
 
 
 
-            if (username.toString() != ""){
+            if (username.text.toString() != "" && username.text.toString() != " "){
                 if (i == 0){
 
 
@@ -120,6 +120,14 @@ class Login : AppCompatActivity() {
                         if (x == 0){
 
                             db.execSQL("INSERT INTO users (Name, Kolvo, Zadachi) VALUES ('" + user + "', " + kolvo + ", '" + zadachi.toString() +  "')")
+
+
+
+
+                            for (i in 0 ..  kolvo){
+
+                                db.execSQL("INSERT INTO TaskCheck (Name, Num, Task, Ex) VALUES ('" + user + "', $i, '"+ zadachi[i] + "', 'No')")
+                            }
 
 
 

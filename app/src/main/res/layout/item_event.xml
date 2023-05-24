@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_marginTop="10dp"
-    android:layout_marginLeft="10dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:background="#141214"
+    android:backgroundTint="#141214">
 
 
         <CheckBox
@@ -11,7 +13,12 @@
             android:layout_width="372dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:buttonTint="#36BBCE"
             android:text="@string/checkBoxDefault"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#36BBCE"
+            android:textColorHint="#FFFFFF"
+            android:textColorLink="#36BBCE"
             android:textSize="20sp" />
 
 

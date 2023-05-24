@@ -4,4 +4,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#cc0000</color>
     <color name="green">#004d00</color>
+
+
+    <color name="buttons">#36BBCE</color>
+    <color name="backgrounds">#141214</color>
+    <color name="fonts">#FFFFFF</color>
+
 </resources>
